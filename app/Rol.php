@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Incident extends Model
-{    
+class Rol extends Model
+{
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'activity_id'
+        'name'
     ];
 
-    public function activity(){
-        return $this->belongsTo('App\Activity');
+    public function users(){
+        return $this->belongsToMany('App\User');
     }
 }

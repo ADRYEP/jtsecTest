@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('users', 'UserController');
+Route::post('users/addToProject', 'UserController@addUserToProject');
+Route::post('users/addToActivity', 'UserController@addUserToActivity');
+Route::get('users/{user}/activities', 'UserController@getActivitiesFromUserAsParticipant');
+Route::get('users/{user}/incidents', 'UserController@getIncidentFromUser');
+Route::resource('activities', 'ActivityController');
+Route::resource('incidents', 'IncidentController');
+Route::resource('projects', 'ProjectController');
+Route::get('projects/{project}/activities', 'ProjectController@getActivitiesFromProject');
+Route::get('projects/{project}/participants', 'ProjectController@getParticipantsFromProject');

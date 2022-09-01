@@ -16,15 +16,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'rol'
+        'name', 'rol_id'
     ];
+    
+    public function activities(){
+        return $this->belongsToMany('App\Activity', 'users_activities');
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function projects(){
+        return $this->belongsToMany('App\Project', 'users_projects');
+    }
+
+    public function roles(){
+        return $this->hasOne('App\Rol');
+    }
 }
