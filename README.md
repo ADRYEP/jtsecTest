@@ -23,3 +23,6 @@
 - Si se desea, se pueden ejecutar los comandos de migraciones, etc... de manera independiente de la siguiente manera:
     - php artisan migrate --seed (Si ya se ha ejecutado una vez, se debe agregar :fresh justo después de migrate)
     - php artisan test
+
+## Nota
+    He decidido no agregar funciones para asignar una actividad a un proyecto debido a que creo que en este caso, una actividad debe ser asignada a un proyecto en el momento en que la misma se crea. Lo mismo para una incidencia con las actividades
